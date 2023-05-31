@@ -61,18 +61,20 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
 
 /////////////Button///////////////////////////////
 var playButton = document.getElementById("play");
-var pano;
 function ranLatLng() {
-  
   var ranLat = ((Math.random() * 3) + 34.5).toFixed(6);
   var ranLng = ((Math.random() * 2.5) + 126.5).toFixed(6);
   console.log(ranLat, ranLng);
   position = new kakao.maps.LatLng(ranLat, ranLng);
   roadviewClient.getNearestPanoId(position, 300, function (panoId) {
+    //panoId값이 null인 경우 핸들러
     console.log(panoId);
-    pano = panoId;
+    if(panoId == null) ranLatLng();
+    else {
+      roadview.setPanoId(panoId, position);
+      return;
+    }
   });
-  console.log("pano : ", pano);
 }
 
 playButton.addEventListener('click', ranLatLng);
