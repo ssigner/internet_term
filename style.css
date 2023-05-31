@@ -1,0 +1,30 @@
+body {
+  width: 1060px;
+}
+
+#roadview{
+  width: 500px;
+  height: 400px;
+  /*float*/
+  float:left;
+  margin-right: 0px;
+}
+
+#map{
+  margin-left: 0px;
+  width: 500px;
+  height: 400px;
+  /*float*/
+  float: right;
+}
+
+#play{
+  margin-top:10px;
+  width: 100px;
+  height: 50px;
+}
+
+#clickLatlng{
+  /*clear*/
+  clear: both;
+}
