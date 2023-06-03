@@ -51,19 +51,19 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
 
   // 마커 위치를 클릭한 위치로 옮깁니다
   marker.setPosition(latlng);
-
-  var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-  message += '경도는 ' + latlng.getLng() + ' 입니다';
-
-  var resultDiv = document.getElementById('clickLatlng');
-  resultDiv.innerHTML = message;
+  var lat = document.getElementById('lat');
+  lat.innerHTML = latlng.getLat().toFixed(6);
+  var lng = document.getElementById('lng');
+  lng.innerHTML = latlng.getLng().toFixed(6);
 });
 
 /////////////Button///////////////////////////////
 var playButton = document.getElementById("play");
+var ranLat;
+var ranLng;
 function ranLatLng() {
-  var ranLat = ((Math.random() * 3) + 34.5).toFixed(6);
-  var ranLng = ((Math.random() * 2.5) + 126.5).toFixed(6);
+  ranLat = ((Math.random() * 3) + 34.5).toFixed(6);
+  ranLng = ((Math.random() * 2.5) + 126.5).toFixed(6);
   console.log(ranLat, ranLng);
   position = new kakao.maps.LatLng(ranLat, ranLng);
   roadviewClient.getNearestPanoId(position, 300, function (panoId) {
@@ -75,7 +75,13 @@ function ranLatLng() {
       return;
     }
   });
+  playButton.disabled = true;
 }
 
-playButton.addEventListener('click', ranLatLng);
+function playStart(){
+  ranLatLng();
+  console.log("last latlng ", ranLat, ranLng);
+}
+
+playButton.addEventListener('click', playStart);
 

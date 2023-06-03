@@ -2,29 +2,125 @@ body {
   width: 1060px;
 }
 
-#roadview{
-  width: 500px;
-  height: 400px;
-  /*float*/
+header{
+  width: 1020px;
+  background: #EDEEF0;
+  font-size: 40px;
+  text-align: center;
+  color:black;
+  padding: 5px;
+}
+
+#kategorie{
+  width: 1000px;
+  background: #EDE1E3;
+  padding: 15px;
+}
+/*combinator 1*/
+#kategorie > a{
+  margin-right: 30px;
+  font-size: 18px;
+  text-decoration : none;
+}
+
+/*pseudo-element 1*/
+#kategorie > a::after{
+  content: '|';
+  padding-left: 30px;
+}
+
+article {
+  /*flex*/
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*combinator 2*/
+article > div {
   float:left;
-  margin-right: 0px;
+  width: 400px;
+  height: 300px;
 }
 
-#map{
-  margin-left: 0px;
-  width: 500px;
-  height: 400px;
+#data{
   /*float*/
-  float: right;
+  float:right;
+  width: 200px;
+  height: 270px;
+  padding : 15px;
+  background: #D1DFE8;
+}
+/*combinator 3*/
+#data > table{
+  margin : auto;
+  margin-top:70px;
+  border: 1px solid #909FA6;
+  border-collapse: collapse;
 }
 
-#play{
-  margin-top:10px;
-  width: 100px;
-  height: 50px;
+td{
+  border: 1px solid #909FA6;
+}
+/*pseudo-class 1*/
+td:first-child{
+  color:white;
+  background: #909FA6;
+  padding:10px 15px 10px 15px;
+}
+/*pseudo-class 2*/
+td:last-child{
+  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-#clickLatlng{
+form {
   /*clear*/
   clear: both;
+  background: #FAF0E4;
+  width: 1030px;
+}
+/*combinator 4*/
+form > input {
+  width: 100px;
+  height: 50px;
+  margin-top : 20px;
+  margin-bottom: 20px;
+  margin-left : 10px
+}
+/*combinator 5*/
+form > a {
+  margin-left : 30px;
+}
+
+#text_container{
+  margin-left: 20px;
+}
+
+/*pseudo-element 2*/
+#text_container > a::after {
+  content: ':';
+  padding-left: 20px;
+}
+
+#my_id {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+#copy{
+  text-align: center;
+  font-style: italic;
+}
+
+
+@media screen and (max-width: 900px){
+  article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 }
