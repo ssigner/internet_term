@@ -25,26 +25,38 @@
         <div id="map"></div>
 
       <div id="data">
+        <!--table-->
         <table id = data_table>
           <tr>
             <td>위도</td>
             <td id = "lat">.</td>
           </tr>
+          <tr>
             <td>경도</td>
             <td id = "lng">.</td>
+          </tr>
+          <tr>
+            <td>점수</td>
+            <td id = "score">.</td>
+          </tr>
         </table>
       </div>
     </article>
     <form action="#">
       <!--input 1, 2, 3, 4-->
       <input id = "play" type = "button" value = "게임시작">
-      <input id = "check" type= "button" value = "점수확인">
+      <input id = "check" type= "button" value = "점수확인" disabled="true">
       <span id = text_container>
         <a>ID</a>
         <input id = "my_id" type="text" placeholder="최소 1자 이상">
       </span>
       <input id = "register" type= "button" value = "등록">
     </form>
+    <!--list-->
+    <ol id = "best">
+      스코어 순위
+    </ol>
+
     <footer>
       <p id = "copy">Copyright &copy; 2023 김종훈</p>
     </footer>

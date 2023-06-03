@@ -80,6 +80,7 @@ form {
   clear: both;
   background: #FAF0E4;
   width: 1030px;
+  margin-bottom: 0px;
 }
 /*combinator 4*/
 form > input {
@@ -96,6 +97,7 @@ form > a {
 
 #text_container{
   margin-left: 20px;
+  display: none;
 }
 
 /*pseudo-element 2*/
@@ -111,11 +113,28 @@ form > a {
   margin-left: 20px;
 }
 
+#register {
+  display: none;
+}
+
 #copy{
   text-align: center;
   font-style: italic;
 }
 
+span > a {
+  margin-left: 20px;
+}
+
+#best {
+  width: 990px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 100px;
+  background-color: #D2FFD2;
+}
 
 @media screen and (max-width: 900px){
   article {
