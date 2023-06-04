@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>201924442 김종훈</title>
     <!--API 2개-->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
   </head>
   <body>
@@ -17,7 +17,7 @@
       <a href="#roadview">로드뷰</a>
       <a href="#map">지도</a>
       <a href="#play">게임하기</a>
-      <a>길찾기</a>
+      <a id = "kakao_nav">카카오맵</a>
     </nav>
     <article>
 
@@ -29,17 +29,18 @@
         <table id = data_table>
           <tr>
             <td>위도</td>
-            <td id = "lat">.</td>
+            <td id = "lat">35.231606</td>
           </tr>
           <tr>
             <td>경도</td>
-            <td id = "lng">.</td>
+            <td id = "lng">129.084216</td>
           </tr>
           <tr>
             <td>점수</td>
             <td id = "score">.</td>
           </tr>
         </table>
+        <a id = "kakao_map" target="_blank"><img id = "map_img" src="kakaoFind.jpg"/></a>
       </div>
     </article>
     <form action="#">
@@ -48,13 +49,13 @@
       <input id = "check" type= "button" value = "점수확인" disabled="true">
       <span id = text_container>
         <a>ID</a>
-        <input id = "my_id" type="text" placeholder="최소 1자 이상">
+        <input id = "my_id" type="text" placeholder="최소 1자 이상" value = "">
       </span>
       <input id = "register" type= "button" value = "등록">
     </form>
     <!--list-->
     <ol id = "best">
-      스코어 순위
+      스코어 순위 (최대 5인까지)
     </ol>
 
     <footer>

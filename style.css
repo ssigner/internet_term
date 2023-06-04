@@ -121,14 +121,25 @@ form > a {
   text-align: center;
   font-style: italic;
 }
-
+/*combinator 6*/
 span > a {
   margin-left: 20px;
 }
 
+#map_img {
+  width: 50px;
+  height: 50px;
+  padding-left: 75px;
+  margin-top: 20px;
+  
+}
+
+#kakao_map{
+  display:none;
+}
+
 #best {
   width: 990px;
-  text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 0px;
@@ -136,6 +147,7 @@ span > a {
   background-color: #D2FFD2;
 }
 
+/*모바일 환경 대응 구현*/
 @media screen and (max-width: 900px){
   article {
     display: flex;
