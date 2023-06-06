@@ -1,8 +1,18 @@
+//처음 브라우저 열 시 로컬스토리지 불러오기, api키나 네트워크가 이상할 경우 알림창 띄우기 
+function storage_init(){
+  if((document.getElementById('roadview').innerHTML == "") || (document.getElementById('map').innerHTML == "")){
+    alert("apikey나 네트워크 상태를 확인 해주세요.");
+  }
+  scoreList.innerHTML = getStorage();
+}
+
+addEventListener('load', storage_init);
 const pusan_position = {
   lat: 35.231606,
   lng: 129.084216
 }
 var score_check = false;
+
 //////////////////////////roadview////////////////////////
 
 var roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
@@ -62,6 +72,9 @@ var regButton = document.getElementById("register");
 var goMap = document.getElementById("kakao_map");
 var scoreList = document.getElementById("best");
 var kakao_nav = document.getElementById("kakao_nav");
+var initButton = document.getElementById("init");
+var checkbox = document.getElementById("anony");
+var c_container = document.getElementById("check_container");
 var ranLat;
 var ranLng;
 var score;
@@ -70,11 +83,9 @@ const key = "user";
 function ranLatLng() {
   ranLat = ((Math.random() * 3) + 34.5).toFixed(6);
   ranLng = ((Math.random() * 3) + 126.5).toFixed(6);
-  console.log(ranLat, ranLng);
   position = new kakao.maps.LatLng(ranLat, ranLng);
   roadviewClient.getNearestPanoId(position, 300, function (panoId) {
     //panoId값이 null인 경우 재귀로 처리 -- ERROR Handling 1
-    console.log(panoId);
     if(panoId == null) ranLatLng();
     else {
       roadview.setPanoId(panoId, position);
@@ -125,13 +136,13 @@ function decision(){
   t_container.style.display = 'inline';
   regButton.style.display = 'inline';
   score_check = true;
-  console.log(score_check);
   //해당 게임으로 나온 곳 카카오맵 바로가기, 기능 2
   var link = "https://map.kakao.com/link/map/" + ranLat + "," + ranLng;
-  console.log(link);
   goMap.href = link;
   goMap.style.display = 'block';
   kakao_nav.href = "#kakao_map";
+  initButton.style.display = 'inline';
+  c_container.style.display = 'inline';
 }
 
 checkButton.addEventListener('click', decision);
@@ -150,19 +161,25 @@ function init_game(){
   playButton.disabled = false;
   t_container.style.display = 'none';
   regButton.style.display = 'none';
+  initButton.style.display = 'none';
+  c_container.style.display = 'none';
+  checkbox.checked = false;
   document.getElementById("score").innerHTML = ".";
   document.getElementById("my_id").value = "";
 }
+
+initButton.addEventListener('click', init_game);
 //JSON을 이용한 localStorage에 1~5위까지의 순위 저장, 시작할때 불러오기
 //기능 3
 function score_register(){
   //에러 핸들링 2
   var id_text = document.getElementById("my_id").value;
-  console.log(id_text.length, id_text);
-  if(id_text.length <= 0){
+  if((id_text.length <= 0) && (!checkbox.checked)){
     alert("ID는 한글자 이상입니다.");
     return;
   }
+  var id_text;
+  if(checkbox.checked) id_text = "익명"
   setStorage(id_text);
   scoreList.innerHTML = getStorage();
   init_game();
@@ -219,9 +236,4 @@ function getStorage(){
   return element;
 }
 
-function storage_init(){
-  scoreList.innerHTML = getStorage();
-}
-
 regButton.addEventListener('click', score_register);
-addEventListener('load', storage_init);

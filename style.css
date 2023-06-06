@@ -38,6 +38,7 @@ article {
 
 /*combinator 2*/
 article > div {
+  /*float*/
   float:left;
   width: 400px;
   height: 300px;
@@ -145,6 +146,19 @@ span > a {
   margin-top: 0px;
   margin-bottom: 100px;
   background-color: #D2FFD2;
+}
+
+#init{
+  display:none;
+}
+
+#check_container{
+  display:none;
+}
+
+#anony {
+  width: 20px;
+  height: 20px;
 }
 
 /*모바일 환경 대응 구현*/

@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>201924442 김종훈</title>
-    <!--API 2개-->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
+    <!--API 2개 (로드뷰, 지도)-->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
   </head>
@@ -44,14 +43,19 @@
       </div>
     </article>
     <form action="#">
-      <!--input 1, 2, 3, 4-->
+      <!--input 1, 2, 3-->
       <input id = "play" type = "button" value = "게임시작">
       <input id = "check" type= "button" value = "점수확인" disabled="true">
       <span id = text_container>
         <a>ID</a>
         <input id = "my_id" type="text" placeholder="최소 1자 이상" value = "">
       </span>
-      <input id = "register" type= "button" value = "등록">
+      <span id = "check_container">
+        <a>익명으로 등록</a>
+        <input id = "anony" type="checkbox">
+      </span>
+      <input id = "register" type= "button" value = "등록" unchecked>
+      <input id = "init" type= "button" value = "초기화">
     </form>
     <!--list-->
     <ol id = "best">
