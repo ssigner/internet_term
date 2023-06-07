@@ -130,9 +130,18 @@ span > a {
 #map_img {
   width: 50px;
   height: 50px;
-  padding-left: 75px;
-  margin-top: 20px;
-  
+  float: right;
+  margin-top:20px;
+  padding-right:30px;
+  margin-left: 0px;
+}
+
+#kakaotalk{
+  width: 80px;
+  height: 50px;
+  margin-top:20px;
+  text-align: center;
+  display: none;
 }
 
 #kakao_map{

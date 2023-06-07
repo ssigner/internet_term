@@ -75,9 +75,12 @@ var kakao_nav = document.getElementById("kakao_nav");
 var initButton = document.getElementById("init");
 var checkbox = document.getElementById("anony");
 var c_container = document.getElementById("check_container");
+var kakaotalk = document.getElementById("kakaotalk");
+var lat = document.getElementById("lat");
+var lng = document.getElementById("lng");
 var ranLat;
 var ranLng;
-var score;
+var score = 0;
 const key = "user";
 //대한민국 내의 랜덤한 위도경도를 생성후 그 위도 경도를 바탕으로 로드뷰 출력
 function ranLatLng() {
@@ -143,6 +146,8 @@ function decision(){
   kakao_nav.href = "#kakao_map";
   initButton.style.display = 'inline';
   c_container.style.display = 'inline';
+  kakaotalk.style.display = 'inline';
+  kakao_messsage();
 }
 
 checkButton.addEventListener('click', decision);
@@ -163,14 +168,16 @@ function init_game(){
   regButton.style.display = 'none';
   initButton.style.display = 'none';
   c_container.style.display = 'none';
+  kakaotalk.style.display = 'none';
   checkbox.checked = false;
   document.getElementById("score").innerHTML = ".";
   document.getElementById("my_id").value = "";
+  lat.innerText = pusan_position.lat;
+  lng.innerText = pusan_position.lng;
 }
 
 initButton.addEventListener('click', init_game);
 //JSON을 이용한 localStorage에 1~5위까지의 순위 저장, 시작할때 불러오기
-//기능 3
 function score_register(){
   //에러 핸들링 2
   var id_text = document.getElementById("my_id").value;
@@ -237,3 +244,21 @@ function getStorage(){
 }
 
 regButton.addEventListener('click', score_register);
+//기능 3 카카오톡 메세지 보내기
+function kakao_messsage(){
+  Kakao.init('');
+  Kakao.Link.createDefaultButton({
+    container: '#kakaotalk',
+    objectType: 'feed',
+    content: {
+      title: '내 랜덤 로드뷰 게임 점수',
+      description: `내 점수는 ${score}점 입니다!`,
+      imageUrl:
+        './kakaoFind.jpg',
+      link: {
+        mobileWebUrl: 'https://developers.kakao.com',
+        webUrl: 'https://developers.kakao.com',
+      },
+    },
+  });
+}

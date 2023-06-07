@@ -5,12 +5,13 @@
     <title>201924442 김종훈</title>
     <!--API 2개 (로드뷰, 지도)-->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
   </head>
   <body>
     <!--Semantic-->
     <header>
-      <div>로드뷰 게임</div>
+      <div>랜덤 로드뷰 게임</div>
     </header>
     <nav id="kategorie">
       <a href="#roadview">로드뷰</a>
@@ -40,6 +41,7 @@
           </tr>
         </table>
         <a id = "kakao_map" target="_blank"><img id = "map_img" src="kakaoFind.jpg"/></a>
+        <input id = "kakaotalk" type="button" value="보내기" >
       </div>
     </article>
     <form action="#">
@@ -66,5 +68,5 @@
       <p id = "copy">Copyright &copy; 2023 김종훈</p>
     </footer>
   </body>
-  <script type="text/javascript" src="map.js"></script>
+  <script type="module" src="map.js"></script>
 </html>
