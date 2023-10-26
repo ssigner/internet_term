@@ -246,7 +246,7 @@ function getStorage(){
 regButton.addEventListener('click', score_register);
 //기능 3 카카오톡 메세지 보내기
 function kakao_messsage(){
-  Kakao.init('');
+  Kakao.init('cb32fdce4d2bcccb11647f61c51e291b');
   Kakao.Link.createDefaultButton({
     container: '#kakaotalk',
     objectType: 'feed',
